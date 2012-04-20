@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="DLipid : Dynamics of the ethanolamine glycerophospholipid remodeling network" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>DLipid</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/nbidiaz/DLipid">Fork Me on GitHub</a>
+
+          <h1 id="project_title">DLipid</h1>
+          <h2 id="project_tagline">Dynamics of the ethanolamine glycerophospholipid remodeling network</h2>
+
+          <section id="downloads">
+            <a class="zip_download_link" href="https://github.com/nbidiaz/DLipid/zipball/master">Download this project as a .zip file</a>
+            <a class="tar_download_link" href="https://github.com/nbidiaz/DLipid/tarball/master">Download this project as a tar.gz file</a>
+          </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>Welcome to DLipid Pages.</h3>
+
+<p><em><strong>Here we could introduce a summary.</strong> something like:</em></p>
+
+<p>Acyl chain remodeling in lipids is a critical biochemical process that plays a central role in disease. However, remodeling remains poorly understood, despite massive increases in lipidomic data. With this application, the novel dynamic network of ethanolamine glycerophospholipid (PE) remodeling is determined. The model uses a set of ordinary differential equations based on the assumptions that (1) sn1 and sn2 acyl positions are independently remodeled; (2) remodeling reaction rates are constant over time; and (3) acyl donor concentrations are constant. The avaliable tool uses a novel fast and accurate two-step algorithm to automatically infer model parameters. This is the first such method applicable to dynamic phospholipid lipidomic data. </p>
+
+<h3>How to use it?</h3>
+
+<pre><code>$ cd DLipid/bin
+$ java -jar DLipid.jar inputFile minimumTH [maximumTH]
+</code></pre>
+
+<p><strong>A) inputFile</strong>:</p>
+
+<p><em>Path</em>. If only the file name is written, default input folder will be selected:  <code>../DATA/inputFile</code>
+<em>Specificiation</em></p>
+
+<pre><code>                      time1           time2           . . .
+
+      specie1         mean    std     mean    std
+
+      specie2         mean    std     mean    std
+
+       . . .
+</code></pre>
+
+<p><strong>B) Thresold</strong> used by FluxNetworkApplciaton: goes from the minimum thresold to the maximum one with the step size 0.1. </p>
+
+<ul>
+<li>
+<em>maximumTH</em> is optional; if it is not indicated, only the minimum threshold will be computed.</li>
+</ul><p>Example:   </p>
+
+<pre><code>$ java -jar DLipid.jar 14_0-14_ 0.txt 0.2
+</code></pre>
+
+<h3>Interpreting the results:</h3>
+
+<pre><code>$ cd "DestinationFolder"/RESULTS/"inputFile"
+</code></pre>
+
+<p><strong>A) "DestinationFolder</strong> depends on the inputFile path. Using 14_0-14_0.txt as example</p>
+
+<ul>
+<li>if it is inside of DATA folder, <code>./DLipid/Results/14_0-14_0/</code>
+</li>
+<li>ohterwise; <code>"inputFilePath"/14_0-14_0/</code>
+</li>
+</ul><p><strong>B) Output files:</strong>  </p>
+
+<ul>
+<li>
+<em>*.txt</em>: LULU please describes </li>
+<li>
+<em>*.eps</em>: LULU please describes</li>
+<li>
+<em>*.graphml</em>: this file is an xml file format which stored flux network. See <a href="http://www.fileinfo.com/extension/graphml">Graphml File Extension</a> for more detail.</li>
+<li>
+<em>*.sif</em>: codification of the remodeling network. The meaning of each line is: source1 parameter1 target1</li>
+</ul><h3>DLipid team</h3>
+
+<p><em>First possibilty</em>
+The applicaton has been developed by <a href="http://bioinformatics.bc.edu/chuanglab/wiki/index.php/Main_Page">Chuang's Lab</a>:</p>
+
+<ul>
+<li>Jeffrey Chuang: Principal Investigator, assistant proffesor of biology at Boston College.</li>
+<li>
+<a href="http://www.upo.es/eps/ndiaz/">Norberto Díaz-Díaz</a>: visiting scientist. Assistant proffesor of computer science at Pablo de Olavide University</li>
+<li>Koursoh Zarringhalam: post-doctoral student</li>
+<li>Lu Zhang: pre-doctoral studend</li>
+</ul><p><em>Second possibility</em>
+The application has been developed in collaboration with <a href="http://bioinformatics.bc.edu/chuanglab/wiki/index.php/Main_Page">Chuang's Lab</a> members (Lu Zhang, Dr. Koursoh Zarringhalam and Dr. Jeffrey Chuang) and <a href="http://www.upo.es/eps/ndiaz/">Dr. Norberto Díaz-Díaz</a> (assistant proffesor of Computer Sciente at Pablo de Olavide University).</p>
+
+<h3>Support or Contact</h3>
+
+<p>??</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">DLipid maintained by <a href="https://github.com/nbidiaz">nbidiaz</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
