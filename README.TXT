@@ -28,7 +28,7 @@ http://www.mathworks.com/downloads/web_downloads.
 
 
 # Step 1: Construct flux network and simulation
-==================================
+-----------------------------------------------
 > cd bin
 > java -jar DLipid.jar <inputFile> <minTh> [-m] [-n]
 * Usage: java -jar DLipid.jar ../DATA/18_0-18_1.txt 0.3
@@ -65,7 +65,7 @@ You can quit Matlab after calculations finish.
 
 
 # Step 2: Retrieve flux network and simulation results.
-======================================================
+-------------------------------------------------------
 
 Go to output folder.
 
@@ -78,7 +78,7 @@ If you excite the example command at Step 1, you will see the following files in
 	
 	"sim_18_0-18_10.3.jpg":  shows the fit of simulation to observed kinetics.
 
-	"18_0-18_10.1.grapheme":   	 is a xml format file of inferred flux network.
+	"18_0-18_10.1.grapheme": is a xml format file of inferred flux network.
 
 	"18_0-18_10.3.sif":	 is a sif format file of reaction network.
 
@@ -90,16 +90,16 @@ If you excite the example command at Step 1, you will see the following files in
 
 
 # LipidGraphical: A graphical interface for flux analysis.
-======================================================
+---------------------------------------------------------
 
 This application allows vitalization of .grahpml network files.
 
-java -jar FluxNetworkGUI.jar
+	java -jar FluxNetworkGUI.jar
 
 
 
-# DynamicSimulation: 
-======================================================
+# DynamicSimulation: Dynamic system solver using B-Spline algorithm.
+--------------------------------------------------------------------
 
 This application allows simulation with user-defined .sif reaction network file.
 
@@ -111,5 +111,6 @@ This application allows simulation with user-defined .sif reaction network file.
 
 
 AUTHOR:
+
 Norberto Diaz Diaz <ndiaz@upo.es> and Lu Zhang <zhanglv@bc.edu>.
 Copyright © 2012 Chuang Lab Boston College.

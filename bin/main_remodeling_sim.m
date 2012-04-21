@@ -6,7 +6,7 @@ function [T, Y, E, P] = main_remodeling_sim(fobs,fnet,MaxIter)
 % Boston College
 %
 % Usage: 
-% main_remodeling_sim('../demo/DATA/18_0-18_1.txt','../demo/DATA/18_0-18_1.sif',1000);
+% main_remodeling_sim('../DATA/18_0-18_1.txt','../RESULTS/18_0-18_1/18_0-18_10.3.sif',1000);
 %
 % input
 %
@@ -34,7 +34,7 @@ options = optimset('LargeScale','off','Display','off');
 % Generate Output Directory
 [pathstr, prefix] = fileparts(fobs);
 if ~isempty(pathstr); 
-    outdir = [regexprep(pathstr, 'DATA', 'results') filesep prefix];
+    outdir = [regexprep(pathstr, 'DATA', 'RESULTS') filesep prefix];
 else
     outdir = [prefix];
 end
@@ -45,6 +45,7 @@ end
 % Input flux network
 Network = importdata(fnet);
 Network = unique(Network,'rows');
+[npathstr, nprefix] = fileparts(fnet);
 
 % Input pulse-chase measurement
 temp = importdata (fobs,'\t',1);
@@ -149,7 +150,7 @@ end
 X2 = X(1:num_para);
 [B inx] = sort(X2,'descend');
 
-fid = fopen([outdir filesep 'log_' prefix '.txt'],'wt');
+fid = fopen([outdir filesep 'log_' nprefix '.txt'],'wt');
 fprintf(fid,'%s\n\nLipid\t%s\nNetwork\t%s\nnum_iter\t%d\nerror\t%1.2f\n\n',date,fobs,fnet,num_iter,resnorm);
 for j = 1 : num_para
     i = inx(j);
@@ -167,9 +168,10 @@ if (num_iter>MaxIter*2)
 end
 fclose(fid);
 
-tempfilename = ['..' filesep 'tmp' filesep 'tp16c19154_9bed_4a92_9441_4b248cb094ee'];
-save tempfilename X2 num_para num_sp Network;
+tempfilename = ['tp16c19154_9bed_4a92_9441_4b248cb094ee.mat'];
+save(tempfilename,'X2','num_para','num_sp','Network');
 [T,Y] = ode45(@mysim,[t_start:du:t_end],Fit_col(1,:)); 
+delete(tempfilename);
 
 % PLOT simulation results
 COLOR = repmat({[0 0 1],[0 0.4980 0],[0.8471 0.1608 0],[0 0.7490 0.7490],[0.7490 0 0.7490],[0.7490 0.7490 0],[0.3137 0.3176 0.3137]},1,4);
@@ -188,7 +190,7 @@ if (is_plot=='T')
     yl = get(gca,'Ylim');
     set(gca,'Ylim',[-4 yl(2)]);
     set(legend_handle, 'Box', 'off')
-    print('-f1','-djpeg','-r300',[outdir filesep 'sim_' prefix '.jpg']);
+    print('-f1','-djpeg','-r300',[outdir filesep 'sim_' nprefix '.jpg']);
 end
 
 fprintf('\nOutput to Directory: %s\n', outdir)

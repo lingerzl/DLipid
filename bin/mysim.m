@@ -5,7 +5,7 @@ function dy = mysim(t,y)
 % Copyright Mar 2012, Lu Zhang, all rights reserved.
 % Boston College
 
-tempfilename = ['..' filesep 'tmp' filesep 'tp16c19154_9bed_4a92_9441_4b248cb094ee'];
+tempfilename = ['tp16c19154_9bed_4a92_9441_4b248cb094ee'];
 
 load(tempfilename);
 
