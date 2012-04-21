@@ -54,7 +54,10 @@ OPTIONS:
 		    this number at step size 0.1. [null]
 
 		
-	-n INT      Iteration number in B-Spline algorithm. The algorithm will stop 		    at next-closest iteration where the error is min within last 		    four iterations. The algorithm will also stop when error change 		    is less than 0.0001 between subsequent steps. [1000]
+	-n INT      Iteration number in B-Spline algorithm. The algorithm will stop 		    
+		    at next-closest iteration where the error is min within last
+ 		    four iterations. The algorithm will also stop when error change
+ 		    is less than 0.0001 between subsequent steps. [1000]
 
 
 Then you will see Matlab application starts after a few seconds. 
@@ -76,6 +79,7 @@ If you excute the example command at Step 1, you will see the following files in
 	"sim_18_0-18_10.3.jpg":  shows the fit of simulation to observed kinetics.
 
 	"18_0-18_10.1.grapheme": is a xml format file of inferred flux network.
+
 	"18_0-18_10.3.sif":	 is a sif format file of reaction network.
 
 	-- Specification:
