@@ -44,20 +44,17 @@ inputFile:
 		Species2	mean	std	mean	std
 		...
 
-minTh <FLOAT>:
+minTh FLOAT :
 	-- Significance score threshold for FluxNetwork application.
 	-- Must be positive.
 
 OPTIONS:	
 	-m FLOAT    Maximum threshold. If this value is specified, multiple runs of
-		    simulations will be performed using thresholds from
-		    minTh to this number at step size 0.1.
+		    simulations will be performed using thresholds from minTh to
+		    this number at step size 0.1. [null]
 
 		
-	-n INT      Iteration number in B-Spline algorithm, default is 1000. The algorithm 
-		    will stop at next-closest iteration where the error is min within last
-		    four iterations. The algorithm will also stop when error change is
-		    less than 0.0001 between subsequent steps.
+	-n INT      Iteration number in B-Spline algorithm. The algorithm will stop 		    at next-closest iteration where the error is min within last 		    four iterations. The algorithm will also stop when error change 		    is less than 0.0001 between subsequent steps. [1000]
 
 
 Then you will see Matlab application starts after a few seconds. 
@@ -72,14 +69,13 @@ Go to output folder.
 If only a filename is given in Step 1, default output folder is "../RESULTS/$inputFile_prefix/".
 Otherwise an output folder "$inputFilePath/$inputFile_prefix/" will be created.
 
-If you excite the example command at Step 1, you will see the following files in the output folder .
+If you excute the example command at Step 1, you will see the following files in the output folder .
 
-	"log_18_0-18_10.3.txt":  stores parameter values and information from dynamic simulations.
+	"log_18_0-18_10.3.txt":  stores information from dynamic simulations.
 	
 	"sim_18_0-18_10.3.jpg":  shows the fit of simulation to observed kinetics.
 
 	"18_0-18_10.1.grapheme": is a xml format file of inferred flux network.
-
 	"18_0-18_10.3.sif":	 is a sif format file of reaction network.
 
 	-- Specification:
